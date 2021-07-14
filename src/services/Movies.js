@@ -3,7 +3,6 @@ import axios from "axios";
 import styled from "styled-components"
 
 
-
 const Container = styled.div`
 
 display: flex;
@@ -25,11 +24,16 @@ margin:1rem;
 
 const Images = styled.img`
 width:20vw;
+border-radius: 5%;
+border: 1px solid #fff;
 `
 const Paragraph = styled.p`
 text-align: justify;
+color:#fff;
 `
-
+const Title = styled.h1`
+color: #fff;
+`
 
 
 const ApiMovies = axios.create({
@@ -70,9 +74,10 @@ class App extends Component {
 
   render() {
     return (
+    
       <Container>
         <div>
-          <h1>TTNFLIX</h1>
+          <Title>TTNFLIX</Title>
         </div>
         <BoxMap>
           {this.state.movies.map((item, index) => (
