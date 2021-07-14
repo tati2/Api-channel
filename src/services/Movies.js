@@ -8,10 +8,9 @@ const Container = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
-padding: 0.5rem;
-margin: 0 auto;
-
-
+padding: 2rem;
+margin: 1vw 2vw;
+min-width:80vw;
 `
 const BoxMap = styled.div` 
 display:flex;
@@ -28,8 +27,13 @@ border-radius: 5%;
 border: 1px solid #fff;
 `
 const Paragraph = styled.p`
-text-align: justify;
 color:#fff;
+margin: 0.5rem;
+width:15vw;
+font-size:17px;
+font-weight: bold;
+
+
 `
 const Title = styled.h1`
 color: #fff;
@@ -70,6 +74,7 @@ class App extends Component {
     this.setState({
       movies: moviePoster
     });
+    
   }
 
   render() {
@@ -83,6 +88,7 @@ class App extends Component {
           {this.state.movies.map((item, index) => (
             <Card key={index}>
               <Images src={item.poster_path} alt="movie-images" />
+              <Paragraph>{item.title}</Paragraph>
               <Paragraph>{item.release_date}</Paragraph>
               <Paragraph>{item.vote_average}</Paragraph>
             </Card>
