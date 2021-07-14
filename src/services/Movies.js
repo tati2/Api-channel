@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import styled from "styled-components"
+//import styled from "styled-components"
 
 const ApiMovies = axios.create({
   baseURL: "https://api.themoviedb.org/3/movie/popular?api_key=f5e33b7872870b499cdef685aff18b48"
