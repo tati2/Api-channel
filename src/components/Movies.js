@@ -19,6 +19,7 @@ flex-wrap: wrap;
 
 const Card = styled.div`
 margin:1rem;
+
 `
 
 const Images = styled.img`
@@ -60,19 +61,22 @@ class App extends Component {
 
     console.log(response.data.results)
 
-    this.setState({
-      movies: response.data.results
-    })
+    // this.setState({
+    //   movies: response.data.results
+    // })
 
-    const moviePoster = response.data.results.map((item) => {
+    const fullMovie = response.data.results.map((item) => {
       return {
         ...item,
         poster_path: `https://image.tmdb.org/t/p/w500${item.poster_path}`
       };
     });
 
+   // preciso apenas de um setState porque já estou conseguindo 
+   // fazer a mudança nas duas const 
+
     this.setState({
-      movies: moviePoster
+      movies: fullMovie
     });
     
   }
@@ -87,7 +91,7 @@ class App extends Component {
         <BoxMap>
           {this.state.movies.map((item, index) => (
             <Card key={index}>
-              <Images src={item.poster_path} alt="movie-images" />
+              <Images src={item.poster_path} alt="popular-movie-images" />
               <Paragraph>{item.title}</Paragraph>
               <Paragraph>{item.release_date}</Paragraph>
               <Paragraph>{item.vote_average}</Paragraph>
